@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Queries{% endblock title %}
+
+{% block body %}
+<div class ="conatiner w-100 h-100">
+  <img src="static\Images\Queries_bg.png" class="d-block vw-100 vh-100 position-absolute" alt="contact"> 
+  <div class="d-flex align-items-center justify-content-start position-relative mx-0 h-100 px-5 py-5" style="opacity:0.7;">
+     <form style="background-image:url(static/Images/bg_contact.png);width:35%;height:80%;" class="fluid-container px-5 py-5 fs-5 position-relative" method="post" action="/queries">
+      {% csrf_token %}
+      {{form.as_p}}
+      {% load widget_tweaks %}
+      {% comment %} <div class = "form-group">
+        {% render_field form.user_name class="form-control" placeholder="Username" type="text" %}
+      </div>
+      <div class = "form-group">
+        {% render_field form.email type="text" class="form-control" placeholder="Email" %}
+      </div>
+      <div class = "form-group">
+        {% render_field form.query class="form-control" placeholder="query" type="text" %}
+      </div> {% endcomment %}
+         {% comment %} Username: &nbsp <input type="text" name="Username" class="form-control" placeholder="Enter a username">
+
+         Email id: &nbsp&nbsp <input type="text" name="email" class="form-control" placeholder="Enter you email ID">
+
+         Queries: &nbsp&nbsp <textarea type="text" name="querY" class="form-control" placeholder="Enter your query"></textarea>  {% endcomment %}
+         
+         <div class="d-flex align-items-center justify-content-center">
+           <button type="submit" class="btn btn-outline-secondary px-5 opacity-100 mx-3 my-3" value="Submit" colour = "#1a242d"> Submit </button>
+         </div>
+     </form>
+   </figure>
+  </div> 
+ </body>
+</div>
+{% endblock  %}
+
+
+

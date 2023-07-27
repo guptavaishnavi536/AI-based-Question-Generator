@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{%load static%}
+{% load widget_tweaks %}
+{% block title %}T&F{% endblock title %}
+
+{% block body %}
+<style>
+  .up-border{
+    border:1px solid #ced4da;
+    width: 315px
+    box-sizing: border-box;
+  }
+
+  input[type=file]::-webkit-file-upload-button{
+    width: 0;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    border: none;
+ }
+ /* "x::-webkit-file-upload-button" forces the rules to only apply to browsers that support this pseudo-element */
+  x::-webkit-file-upload-button, input[type=file]:after {
+content:'Browse...';
+display: inline-block;
+left: 100%;
+margin-left:3px;
+position: relative;
+-webkit-appearance: button;
+padding: .375rem .75rem;
+  }
+
+</style>
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p}}  
+  <div class="form-row">
+    <div class="form-group col-md-12 px-3 my-3">
+      <label for="profile_pic">Module Pdf</label>
+      <input type="file" class="form-control up-border" name = "pdf" id="pdf" text-align="right" placeholder="acceptpdf" accept=".pdf">
+      {% render_field QnAForm.pdf|attr:'required:true' class="form-control" placeholder="" %}
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-success" style="border-radius:0px; margin-left: 15px;">Submit</button>
+</form>
+</div>
+
+<!-- Include the necessary JavaScript libraries -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
+{% endblock body %}

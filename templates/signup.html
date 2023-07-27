@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Sign Up{% endblock title %}
+{% comment %} 
+{% block body %}
+<style>
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+    }
+    
+    input[type=submit] {
+      /* background-color: #04AA6D; */
+      color: white;
+    }
+    
+    .container {
+      /* background-color: #f1f1f1; */
+      padding: 20px;
+    }
+    
+    #message {
+      display:none;
+      /* background: #f1f1f1; */
+      color: #000;
+      position: relative;
+      padding: 20px;
+      margin-top: 10px;
+    }
+    
+    #message p {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+    
+    .valid {
+      color: green;
+    }
+    
+    .valid:before {
+      position: relative;
+      left: -35px;
+      content: "✔";
+    }
+    
+    .invalid {
+      color: red;
+    }
+    
+    .invalid:before {
+      position: relative;
+      left: -35px;
+      content: "✖";
+    }
+</style>
+
+
+
+<div class ="conatiner w-100 h-100">
+  <img src="static/Images/Signup.jpg" class="d-block vw-100 vh-100 position-absolute" alt="contact"> 
+    <div class="d-flex align-items-center justify-content-start position-relative mx-0 h-100 px-5 py-5" style="opacity:0.7;">
+       <form style="background-image:url(static/Images/bg_contact.png);width:35%;height:80%;" class="fluid-container px-5 py-5 fs-5 position-relative" method="post" action="/login">
+          {% csrf_token %}
+           Username: &nbsp <input type="text" name="username" class="form-control" placeholder="Enter a username">
+  
+           Email id: &nbsp&nbsp <input type="text" name="email_id" class="form-control" placeholder="Enter you email ID">
+
+           Password: &nbsp&nbsp <input type="text" name="email_id" class="form-control" placeholder="Enter you email ID">
+           <div class="d-flex align-items-center justify-content-center">
+             <button type="submit" class="btn btn-outline-secondary px-5 opacity-100 mx-3 my-3" value="Submit" colour = "#1a242d"> Submit </button>
+           </div>
+       </form>
+     </figure>
+    </div> 
+   </body>
+  </div>
+{% endblock  %} {% endcomment %}
+
+
+
+{% block body %}
+<script>  
+    function verifyPassword() {  
+      var pw = document.getElementById("pswd").value;  
+      //check empty password field  
+      if(pw == "") {  
+         document.getElementById("message").innerHTML = "**Fill the password please!";  
+         return false;  
+      }  
+       
+     //minimum password length validation  
+      if(pw.length < 8) {  
+         document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+         return false;  
+      }  
+      
+    //maximum length of password validation  
+      if(pw.length > 15) {  
+         document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+         return false;  
+      } else {  
+         alert("Password is correct");  
+      }  
+    }  
+</script>  
+
+<div class ="conatiner w-100 h-100 ">
+    <img src="static\Images\Login.jpg" class="d-block vw-100 vh-100 position-absolute" alt="contact"> 
+    <div class="d-flex align-items-center justify-content-center position-relative mx-0 h-100 px-5 py-5" style="opacity:0.7;">
+       <form style="background-image:url(static/Images/bg_contact.png);width:35%;height:80%;" class="fluid-container px-5 py-5 fs-5 position-relative" method="post" action="/signup">
+          {% csrf_token %}
+          {{form.as_p}}
+           Username: <br> <input type="text" name="username" class="form-control" placeholder="Enter your username">
+           Email Id: <br> <input type="text" name="email" class="form-control" placeholder="Enter your email">
+           Set Password: <br> <input class = "form-control" placeholder="Enter your password" type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+           <span id = "message" style="color:red"> </span>
+           <div class="d-flex align-items-center justify-content-center">
+             <button type="submit" class="btn btn-outline-danger px-5 opacity-100 mx-3 my-3" value="Submit" colour = "#1a242d"> Submit </button>
+           </div>
+       </form>
+     </figure>
+    </div> 
+  </div>
+{% endblock body %}

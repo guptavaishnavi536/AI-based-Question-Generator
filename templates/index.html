@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock title %}
+
+{% block body %}
+<style>
+  .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+
+  #myVideo {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
+
+<div class = "container-fluid px-1">
+  <div id="carouselExampleCaptions" class="carousel slide">
+      <!-- <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div> -->
+      <div class="carousel-inner"> 
+        <div class="video-container bg-dark my-1">
+          <video autoplay muted loop id="myVideo">
+            <source src="static\Images\Videos\New.mp4" type="video/mp4">
+          </video>
+        </div>
+        </div>
+      </div>
+  </div>
+</div> 
+<br>
+<br>
+    
+<div class="row px-5">
+  <div class="col-lg-4">
+    <img src="static\Images\Diversity.png" class="bd-placeholder-img rounded-circle" width="140" height="140" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+    <br>
+    <br>
+    <h2 class="fw-normal">Diversity of Questions</h2>
+    <p>Generate.AI question generator can produce various question types, such as multiple-choice, true/false, short answer, or open-ended questions. This allows for versatility in assessment or learning applications.</p>
+    <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-4">
+    <img src="static\Images\Custom.png" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+    <br>
+    <br>
+    <h2 class="fw-normal">Customizability</h2>
+    <p>These systems often provide options for customizing the generated questions. Users can specify the question type (e.g., multiple-choice, fill in the blanks), or even provide specific context or constraints for the questions.</p>
+    <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+  </div><!-- /.col-lg-4 -->
+
+  <div class="col-lg-4">
+    <img src="static\Images\Grammar.png" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></img>
+    <br>
+    <br>
+    <h2 class="fw-normal">Grammar and Syntax</h2>
+    <p>This system is designed to generate grammatically correct and coherent questions. They can apply syntactic rules and linguistic patterns to construct questions that make sense in the given context.</p>
+    <!-- <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p> -->
+  </div><!-- /.col-lg-4 -->  
+
+  <!-- <div class="col-lg-4">
+    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+    <h2 class="fw-normal">Heading</h2>
+    <p>And lastly this, the third column of representative placeholder content.</p>
+    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+  </div>/.col-lg-4 -->
+</div><!-- /.row -->
+
+
+
+{% endblock body %}
